@@ -1,3 +1,14 @@
+server:
+  port: 8082
+
+client:
+  keycloak:
+    client-id: demo-keycloak
+    client-secret: PtIaITiCZwkkwbrSdeD77bNURVxEzhFc
+    base-url: http://localhost:8080
+    realms: demo
+    issuer-uri: ${client.keycloak.base-url}/realms/${client.keycloak.realms}
+
 spring:
   application:
     name: "notification"
@@ -13,6 +24,10 @@ spring:
           starttls:
             enable: true
     activation:
-      base-url: "http://localhost:8080/api/auth/verify-email"
-server:
-  port: 8082
+      base-url: "http://localhost:8081/api/auth/verify-email"
+  security:
+    oauth2:
+      resourceserver:
+        jwt: #authen by keycloak
+          issuer-uri: ${client.keycloak.issuer-uri}
+          jwk-set-uri: ${client.keycloak.issuer-uri}/protocol/openid-connect/certs

@@ -12,3 +12,7 @@ spring:
           auth: true
           starttls:
             enable: true
+    activation:
+      base-url: "http://localhost:8080/api/auth/verify-email"
+server:
+  port: 8082

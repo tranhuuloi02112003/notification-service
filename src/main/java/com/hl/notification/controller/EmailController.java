@@ -14,7 +14,7 @@ public class EmailController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void send(@RequestBody SendEmailRequest sendEmailRequest) {
+    public void send(@RequestBody SendEmailRequest sendEmailRequest){
         emailService.sendMail(sendEmailRequest);
     }
 }

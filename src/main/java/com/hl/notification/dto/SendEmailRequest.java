@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class SendEmailRequest {
     private String to;
-    private String subject;
-    private String text;
+    private String token;
+    private  String fullName;
 }
